@@ -1,0 +1,31 @@
+<ion-header >
+  <ion-toolbar color="light" id="header">
+    <ion-title>BGMI Result</ion-title>
+    <ion-item>
+      <ion-label>TEAMS</ion-label>
+      <ion-select value="1" okText="Okay" [(ngModel)]="teams" cancelText="Dismiss"
+        [interfaceOptions]="customPopoverOptions" interface="popover">
+        <ion-select-option *ngFor=" let no of NoOfTeams" [value]="no.number">{{no.number}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<container>
+  <div *ngFor="let no of NoOfTeams">
+    <div *ngIf="no.number == teams || no.number <= teams" id="input">
+      <p>{{no.number}}.</p>
+
+      <ion-input type="text" placeholder="Team Name" id="name" maxlength="50" [(ngModule)]="tname"></ion-input>
+
+      <ion-input type="number" placeholder="kills" id="kills" maxlength="2" [(ngModule)]="totkills"></ion-input>
+
+      <ion-input type="number" placeholder="PlacePts." id="points" maxlength="2" [(ngModule)]="totkills"></ion-input>
+
+      <ion-input type="number" placeholder="TotalPts." id="total" maxlength="2" [(ngModule)]="totkills"></ion-input>
+    </div>
+  </div>
+</container>
+<ion-button (click)="storeData(tname,totkills)"> done</ion-button>
+<p *ngFor="let data1 of data">
+  {{data1.teamname}}
+</p>
